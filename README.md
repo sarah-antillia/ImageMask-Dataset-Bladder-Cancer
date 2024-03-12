@@ -78,7 +78,7 @@ By using the script above, we have finally created the following dataset.<br>
 <br>
 
 You can download the dataset from the google drive 
-<a href="https://drive.google.com/file/d/1f9Bwjt2rKstDRgv5zztfrBl-DLZNo--c/view?usp=sharing">
+<a href="https://drive.google.com/file/d/1qxBodGJCC_MuEnusmLLj3f7wdRRwjg1S/view?usp=sharing">
 Bladder-Cancer-ImageMask-Dataset.zip</a> (2024/03/12)
 
 
