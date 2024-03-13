@@ -141,6 +141,7 @@ class ImageMaskDatasetGenerator:
 
       else:
         ANGLES = [0, 90, 180, 270]
+        basename = basename.replace(".png", ".jpg")
 
         for angle in ANGLES:
           rotated_image = resized_image.rotate(angle)

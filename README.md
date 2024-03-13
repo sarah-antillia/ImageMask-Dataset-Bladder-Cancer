@@ -1,4 +1,4 @@
-<h2>ImageMask-Dataset-Bladder-Cancer (Updated: 2024/03/12)</h2>
+<h2>ImageMask-Dataset-Bladder-Cancer (Updated: 2024/03/14)</h2>
 This is a Bladder-Cancer ImageMask Dataset for Image Segmentation.<br>  
 <br>
 
@@ -80,5 +80,46 @@ By using the script above, we have finally created the following dataset.<br>
 You can download the dataset from the google drive 
 <a href="https://drive.google.com/file/d/1qxBodGJCC_MuEnusmLLj3f7wdRRwjg1S/view?usp=sharing">
 Bladder-Cancer-ImageMask-Dataset.zip</a> (2024/03/12)
+
+
+<h3>
+4. Create Augmented ImageMask Dataset
+</h3>
+
+Please move the "./generator" folder, and run Python script <a href="./generator/ImageMaskDatasetGenerator.py">ImageMaskDatasetGenerator.py</a>..
+<br>
+<pre>
+>python ImageMaskDatasetGenerator.py True
+</pre>
+
+This command does the following image processings to generate the test, train and valid sub datasets.<br>
+<pre>
+1 Split the files in the original <b>images</b> and <b>masks</b> folders to <b>test</b>, <b>train</b> and <b>valid</b> subsets.
+2 Create 512x512 square masks files from the mask files in each subset. 
+3 Create 512x512 square images files from the image files in each subset.
+</pre>
+
+By using the script above, we have finally created the following dataset.<br>
+<pre>
+../Augmented-Bladder-Cancer-ImageMask-Dataset
+├─test
+│  ├─images
+│  └─masks
+├─train
+│  ├─images
+│  └─masks
+└─valid
+    ├─images
+    └─masks
+</pre>
+
+<b>Dataset Statistics</b><br>
+<img src ="./_Augmented-Bladder-Cancer-ImageMask-Dataset_.png" width="480" height="auto"><br>
+<br>
+<br>
+You can download the dataset from the google drive 
+<a href="https://drive.google.com/file/d/1giA8mQWCfCFpuivDrsrFY7bHT7KutM_q/view?usp=sharing">
+Augmented-Bladder-Cancer-ImageMask-Dataset.zip</a> (2024/03/14)
+
 
 

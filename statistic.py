@@ -81,6 +81,7 @@ def plot_statistics(x, y, labels, title):
 if __name__ == "__main__":
   try:
     root_dir = "./Bladder-Cancer-ImageMask-Dataset/"
+    root_dir = "./Augmented-Bladder-Cancer-ImageMask-Dataset/"
 
     count_image_files(root_dir, root_dir)
 
