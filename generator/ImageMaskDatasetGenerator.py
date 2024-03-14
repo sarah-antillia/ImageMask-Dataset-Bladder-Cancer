@@ -16,14 +16,8 @@
 #
 # ImageMaskDatasegGenerator.py
 # 2024/03/12 Antillia.com Toshiyuki Arai
-
 # 
-# 1 This splits the original Kvasir-SEG: A Segmented Polyp Dataset 
-# to three subsets train, test and valid. 
-# https://paperswithcode.com/dataset/kvasir-seg
-
-# 2 Resize all image and masks to 512x512
-#
+# 2024/04/15 Modified to normalize images.
 
 #    
 import sys
@@ -87,6 +81,31 @@ class ImageMaskDatasetGenerator:
     self.create_resized_files(test_files,  "test")
 
 
+  def pil_to_cv(self, image):
+    new_image = np.array(image, dtype=np.uint8)
+    if new_image.shape[2] == 3: 
+      new_image = cv2.cvtColor(new_image, cv2.COLOR_RGB2BGR)
+    return new_image
+
+
+  def cv_to_pil(self, image):
+    new_image = image.copy()
+    if new_image.shape[2] == 3:  
+      new_image = cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB)
+    new_image = Image.fromarray(new_image)
+    return new_image
+  
+  def normalize(self, image):
+    image = self.pil_to_cv(image)
+
+    min = np.min(image)/255.0
+    max = np.max(image)/255.0
+    scale = (max - min)
+    image = (image - min) / scale
+    image = image.astype('uint8') 
+    image = self.cv_to_pil(image)
+    return image   
+
   def create_resized_files(self, image_files, dataset): 
     # target = train_or_test_or_valid_dir:
    
@@ -124,7 +143,9 @@ class ImageMaskDatasetGenerator:
 
       image_background = Image.new("RGB", (size, size), (0, 0, 0))
       image_background.paste(image, (px, py))
-    
+      # 2024/03/15: Added the following line.
+      image_background = self.normalize(image_background)
+
       mask_background = Image.new("L", (size, size))
       mask_background.paste(mask, (px, py))
       resized_image = image_background.resize((W, H))
@@ -212,16 +233,22 @@ if __name__ == "__main__":
     masks_dir  = "./bladder_cancer_dataset/tumour_label"
     output_dir = "../Bladder-Cancer-ImageMask-Dataset"
     augmentor  = False
+
     if len(sys.argv) == 2:
       agumentor = sys.argv[1]
       if agumentor == "True" or augmentor == "False":
          augmentor = eval(agumentor)
       else:
         raise Exception("Invalid command line parameter" + augmentor)
+      
     if not os.path.exists(images_dir):
       raise Exception("===NOT FOUND " + images_dir)
     if not os.path.exists(masks_dir):
       raise Exception("===NOT FOUND " + masks_dir)
+
+    if augmentor:
+      output_dir = "../Augmented-Bladder-Cancer-ImageMask-Dataset"
+      print("--- augmentor True")
 
     if os.path.exists(output_dir):
       shutil.rmtree(output_dir)
@@ -230,9 +257,7 @@ if __name__ == "__main__":
       
     # create_master_512x512 dataset train, test
     # from the orignal SEG .
-    if augmentor:
-      output_dir = "../Augmented-Bladder-Cancer-ImageMask-Dataset"
-      print("--- augmentor True")
+
     generator = ImageMaskDatasetGenerator(images_dir, masks_dir, output_dir, augmentor=augmentor)
     generator.generate()
 

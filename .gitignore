@@ -162,8 +162,13 @@ cython_debug/
 generator/bladder_cancer_dataset/
 Bladder-Cancer-ImageMask-Dataset/
 Bladder-Cancer-ImageMask-Dataset.zip
+Bladder-Cancer-ImageMask-Dataset_V2/
+Bladder-Cancer-ImageMask-Dataset_V2.zip
 
 Augmented-Bladder-Cancer-ImageMask-Dataset/
 Augmented-Bladder-Cancer-ImageMask-Dataset.zip
+
+Augmented-Bladder-Cancer-ImageMask-Dataset_V2/
+Augmented-Bladder-Cancer-ImageMask-Dataset_V2.zip
 
 

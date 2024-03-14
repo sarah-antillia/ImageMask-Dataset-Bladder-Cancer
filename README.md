@@ -1,7 +1,8 @@
-<h2>ImageMask-Dataset-Bladder-Cancer (Updated: 2024/03/14)</h2>
+<h2>ImageMask-Dataset-Bladder-Cancer (Updated: 2024/03/15)</h2>
 This is a Bladder-Cancer ImageMask Dataset for Image Segmentation.<br>  
 <br>
-
+<li>2024/03/15: Modified to normalize images in bladder_cancer_dataset/tumor_images.</li>
+<br>
 <h3>1. Dataset Citatioin</h3>
 
 The image dataset used here has been taken from the following github site.<br>
@@ -77,7 +78,14 @@ By using the script above, we have finally created the following dataset.<br>
 <br>
 <br>
 
-You can download the dataset from the google drive 
+You can download the latest normalized dataset from the google drive 
+<a href="You can download the dataset from the google drive 
+<a href="https://drive.google.com/file/d/176ewCOeQA1_lhqjGpykJFhaLdvTRYCn5/view?usp=sharing">
+Bladder-Cancer-ImageMask-Dataset_V2.zip</a> (2024/03/15)
+">
+<br>
+
+You can also download the old_dataset from the google drive 
 <a href="https://drive.google.com/file/d/1qxBodGJCC_MuEnusmLLj3f7wdRRwjg1S/view?usp=sharing">
 Bladder-Cancer-ImageMask-Dataset.zip</a> (2024/03/12)
 
@@ -117,7 +125,12 @@ By using the script above, we have finally created the following dataset.<br>
 <img src ="./_Augmented-Bladder-Cancer-ImageMask-Dataset_.png" width="480" height="auto"><br>
 <br>
 <br>
-You can download the dataset from the google drive 
+You can also download the latest normalized dataset from the google drive 
+<a href="https://drive.google.com/file/d/1BEVmUjRoUl42OyNinA7H9i7opvzW-bWC/view?usp=sharing">
+Augmented-Bladder-Cancer-ImageMask-Dataset_V2.zip</a> (2024/03/15)
+
+<br>
+You can also download the old dataset from the google drive 
 <a href="https://drive.google.com/file/d/1giA8mQWCfCFpuivDrsrFY7bHT7KutM_q/view?usp=sharing">
 Augmented-Bladder-Cancer-ImageMask-Dataset.zip</a> (2024/03/14)
 
