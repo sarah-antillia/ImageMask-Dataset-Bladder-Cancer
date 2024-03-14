@@ -83,14 +83,18 @@ class ImageMaskDatasetGenerator:
 
   def pil_to_cv(self, image):
     new_image = np.array(image, dtype=np.uint8)
-    if new_image.shape[2] == 3: 
+    if new_image.ndim == 2: 
+       pass
+    elif new_image.shape[2] == 3: 
       new_image = cv2.cvtColor(new_image, cv2.COLOR_RGB2BGR)
     return new_image
 
 
   def cv_to_pil(self, image):
     new_image = image.copy()
-    if new_image.shape[2] == 3:  
+    if new_image.ndim == 2:
+      pass
+    elif new_image.shape[2] == 3:  
       new_image = cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB)
     new_image = Image.fromarray(new_image)
     return new_image
@@ -148,6 +152,9 @@ class ImageMaskDatasetGenerator:
 
       mask_background = Image.new("L", (size, size))
       mask_background.paste(mask, (px, py))
+      # 2024/03/15: Added the following line.
+      mask_background = self.normalize(mask_background)
+
       resized_image = image_background.resize((W, H))
       resized_mask  = mask_background.resize((W, H))
 

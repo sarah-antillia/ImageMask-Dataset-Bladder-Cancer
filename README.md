@@ -79,10 +79,9 @@ By using the script above, we have finally created the following dataset.<br>
 <br>
 
 You can download the latest normalized dataset from the google drive 
-<a href="You can download the dataset from the google drive 
+
 <a href="https://drive.google.com/file/d/176ewCOeQA1_lhqjGpykJFhaLdvTRYCn5/view?usp=sharing">
 Bladder-Cancer-ImageMask-Dataset_V2.zip</a> (2024/03/15)
-">
 <br>
 
 You can also download the old_dataset from the google drive 
